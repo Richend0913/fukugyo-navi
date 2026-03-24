@@ -30,6 +30,7 @@ body {
   color: var(--text);
   line-height: 1.8;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 a { color: var(--primary-dark); text-decoration: none; transition: color .2s; }
