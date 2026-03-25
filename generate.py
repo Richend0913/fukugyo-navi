@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """副業ナビ (fukugyo-navi) - Static Site Generator"""
 import os, json, html
+from urllib.parse import quote
 
 ADSENSE_ID = "ca-pub-6327505164684489"
 AMAZON_TAG = "okuritegift-22"
@@ -270,7 +271,7 @@ def stars_html(n):
     return '<span class="stars">' + ("★" * n) + ("☆" * (5 - n)) + '</span>'
 
 def amazon_link(keyword):
-    return f'https://www.amazon.co.jp/s?k={keyword}&tag={AMAZON_TAG}'
+    return f'https://www.amazon.co.jp/s?k={quote(keyword)}&tag={AMAZON_TAG}'
 
 def rakuten_link(keyword):
     return f'https://hb.afl.rakuten.co.jp/hgc/{RAKUTEN_ID}/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F{keyword}%2F'
