@@ -6,6 +6,7 @@ from urllib.parse import quote
 ADSENSE_ID = "ca-pub-6327505164684489"
 AMAZON_TAG = "okuritegift-22"
 RAKUTEN_ID = "522e40a0.f2dc4208.522e40a1.385f875e"
+A8NET_TENSHOKU_URL = ""  # A8net登録後にURLを設定
 SITE_NAME = "副業ナビ"
 SITE_DESC = "2026年最新版｜おすすめ副業35選を徹底比較。収入目安・難易度・始め方をわかりやすく解説。あなたにぴったりの副業が見つかる！"
 BASE_URL = "https://richend0913.github.io/fukugyo-navi"
@@ -305,6 +306,7 @@ def footer_html():
 <p>&copy; 2026 {SITE_NAME} All Rights Reserved.</p>
 <p>※ 当サイトはアフィリエイトプログラムに参加しています。</p>
 <p><a href="https://www.amazon.co.jp/?tag={AMAZON_TAG}">Amazon</a> | <a href="https://www.rakuten.co.jp/">楽天市場</a></p>
+<p style="margin-top:8px"><a href="../salary-navi/">年収ナビ</a> | <a href="../shikaku-navi/">資格ナビ</a> | <a href="../rirekisho-maker/">履歴書メーカー</a></p>
 </footer>'''
 
 def jsonld_job(job):
@@ -451,6 +453,14 @@ def generate_job_page(job):
 <p>{name}に必要な道具やグッズを楽天市場でお得に購入。ポイント還元でさらにお得です。</p>
 <a href="{rakuten_link(rakuten_search)}" target="_blank" rel="noopener noreferrer nofollow">楽天市場で探す →</a>
 </div>
+<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0;">
+<p style="font-weight:600;margin-bottom:12px;">この副業に関連するサービス</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+<a href="../salary-navi/" style="padding:8px 16px;background:#eff6ff;border-radius:6px;text-decoration:none;color:#1e40af;font-size:.85rem;">💰 年収ナビで職業別年収を見る</a>
+<a href="../shikaku-navi/" style="padding:8px 16px;background:#f0fdf4;border-radius:6px;text-decoration:none;color:#166534;font-size:.85rem;">📜 資格ナビで役立つ資格を探す</a>
+<a href="../rirekisho-maker/" style="padding:8px 16px;background:#fef3c7;border-radius:6px;text-decoration:none;color:#92400e;font-size:.85rem;">📄 履歴書メーカーで書類作成</a>
+</div>
+</div>
 </section>
 
 {adsense_block()}
@@ -508,6 +518,14 @@ def generate_index():
 '''
 
     # Book affiliate section
+    tenshoku_btn = ""
+    if A8NET_TENSHOKU_URL:
+        tenshoku_btn = f'''<div class="affiliate-box">
+<div class="aff-title">💼 転職で年収アップを目指す</div>
+<p>副業スキルを活かした転職で、さらに年収アップを目指しましょう。プロのキャリアアドバイザーが無料でサポートします。</p>
+<a href="{A8NET_TENSHOKU_URL}" target="_blank" rel="noopener noreferrer nofollow">無料で転職相談する →</a>
+</div>'''
+
     book_section = f'''<section class="content-section" style="max-width:860px;margin:40px auto;">
 <h2>副業を始めるならまずはこの1冊</h2>
 <div class="affiliate-box">
@@ -519,6 +537,28 @@ def generate_index():
 <div class="aff-title">🛒 副業に役立つツール・グッズ</div>
 <p>副業を効率的に進めるためのツールやグッズを楽天市場でチェック。ポイント還元でお得に揃えましょう。</p>
 <a href="{rakuten_link('副業+ツール')}" target="_blank" rel="noopener noreferrer nofollow">楽天市場で探す →</a>
+</div>
+{tenshoku_btn}
+</section>
+
+<section style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:32px;margin:24px auto;max-width:860px;">
+<h2 style="text-align:center;font-size:1.3rem;color:#1e293b;margin-bottom:20px;">関連サイト</h2>
+<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+<a href="../salary-navi/" style="flex:1;min-width:180px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:16px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;">
+<div style="font-size:1.3rem;margin-bottom:4px;">💰</div>
+<div>年収ナビ</div>
+<div style="font-size:.75rem;opacity:.85;">職業別の年収データ</div>
+</a>
+<a href="../shikaku-navi/" style="flex:1;min-width:180px;background:linear-gradient(135deg,#4facfe,#00f2fe);color:#fff;padding:16px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;">
+<div style="font-size:1.3rem;margin-bottom:4px;">📜</div>
+<div>資格ナビ</div>
+<div style="font-size:.75rem;opacity:.85;">資格の難易度・勉強法</div>
+</a>
+<a href="../rirekisho-maker/" style="flex:1;min-width:180px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:16px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;">
+<div style="font-size:1.3rem;margin-bottom:4px;">📄</div>
+<div>履歴書メーカー</div>
+<div style="font-size:.75rem;opacity:.85;">無料で履歴書作成</div>
+</a>
 </div>
 </section>'''
 
