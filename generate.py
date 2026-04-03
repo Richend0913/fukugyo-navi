@@ -6,7 +6,7 @@ from urllib.parse import quote
 ADSENSE_ID = "ca-pub-6327505164684489"
 AMAZON_TAG = "okuritegift-22"
 RAKUTEN_ID = "522e40a0.f2dc4208.522e40a1.385f875e"
-A8NET_TENSHOKU_URL = ""  # A8net登録後にURLを設定
+A8NET_TENSHOKU_URL = ""  # 転職AGENT NaviのアフィリエイトURLを設定（幅広い職種カバー）
 SITE_NAME = "副業ナビ"
 SITE_DESC = "2026年最新版｜おすすめ副業35選を徹底比較。収入目安・難易度・始め方をわかりやすく解説。あなたにぴったりの副業が見つかる！"
 BASE_URL = "https://richend0913.github.io/fukugyo-navi"
